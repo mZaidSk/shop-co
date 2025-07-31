@@ -1,10 +1,12 @@
 import "./App.css";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
+import CategoryPage from "./pages/Category-Page"
 
 function App() {
     return (
         <div>
-            <Home />
+            {/* <Home /> */}
+            <CategoryPage />
         </div>
     );
 }
