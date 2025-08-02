@@ -15,15 +15,19 @@ function App() {
           element: <Home />,
         },
         // {
-        //   path: '/',
-        //   element: <ProductDetail />
+        //   path: "/product",
+        //   element: <Product />,
         // },
         // {
-        //   path: '/',
-        //   element: <Category />
+        //   path: "/category",
+        //   element: <Category />,
+        // },
+        // {
+        //   path: "/filters",
+        //   element: <Filters />,
         // },
         {
-          path: "/",
+          path: "/productcart",
           element: <ProductCart />,
         },
       ],

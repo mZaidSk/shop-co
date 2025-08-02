@@ -5,6 +5,7 @@ const ProductCart = () => {
     <>
       <ProductList />
       <ProductFeature />
+      cart page
     </>
   );
 };
