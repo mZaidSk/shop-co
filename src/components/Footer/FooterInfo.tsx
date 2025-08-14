@@ -1,101 +1,73 @@
 import { Facebook, Github, Instagram, Twitter } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const FooterInfo = () => {
   return (
-    <>
-      <div className="flex ml-10 p-10">
-        {/* Social */}
+    <footer className="bg-gray-100 lg:m-16 p-10 sm:p-8">
+      <div className="mx-auto">
 
-        <div className="w-70 space-y-7">
-          <h2 className="font-bold text-4xl">SHOP.CO</h2>
-          <p>
-            We have cloths that suits your style and which you're proud to wear,
-            From Women to Men.
-          </p>
-          <div className="flex space-x-3">
-            <Twitter size={20} />
-            <Facebook size={20} />
-            <Instagram size={20} />
-            <Github size={20} />
+        {/* Top section */}
+        <div className="flex flex-col lg:flex-row lg:ml-0 md:ml-35 lg:justify-between lg:items-start gap-10">
+          
+          {/* Logo & social */}
+          <div className="space-y-6 text-center lg:text-center max-w-sm">
+            <h2 className="font-bold text-4xl">SHOP.CO</h2>
+            <p className="text-gray-600">
+              We have clothes that suits your style and which you're proud to wear.
+              From women to men.
+            </p>
+            <div className="flex justify-center lg:justify-center space-x-3">
+              <Twitter size={20} className="cursor-pointer" />
+              <Facebook size={20} className="cursor-pointer" />
+              <Instagram size={20} className="cursor-pointer" />
+              <Github size={20} className="cursor-pointer" />
+            </div>
           </div>
-        </div>
 
-        {/* Company */}
+          {/* Menu sections */}
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+            <div>
+              <h3 className="font-semibold text-lg mb-4">COMPANY</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li><NavLink to="/about">About</NavLink></li>
+                <li><NavLink to="/features">Features</NavLink></li>
+                <li><NavLink to="/works">Works</NavLink></li>
+                <li><NavLink to="/career">Career</NavLink></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">HELP</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li><NavLink to="/support">Customer Support</NavLink></li>
+                <li><NavLink to="/delivery">Delivery Details</NavLink></li>
+                <li><NavLink to="/terms">Terms & Conditions</NavLink></li>
+                <li><NavLink to="/privacy">Privacy Policy</NavLink></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">FAQ</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li><NavLink to="/account">Account</NavLink></li>
+                <li><NavLink to="/manage-deliveries">Manage Deliveries</NavLink></li>
+                <li><NavLink to="/orders">Orders</NavLink></li>
+                <li><NavLink to="/payment">Payment</NavLink></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">RESOURCES</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li><NavLink to="/ebook">Free eBook</NavLink></li>
+                <li><NavLink to="/tutorial">Development Tutorial</NavLink></li>
+                <li><NavLink to="/blog">How to - Blog</NavLink></li>
+                <li><NavLink to="/youtube">Youtube Playlist</NavLink></li>
+              </ul>
+            </div>
+          </div>
 
-        <div className="w-55 space-y-7 ml-10">
-          <h3 className="text-2xl">COMPANY</h3>
-          <ul className="space-y-3">
-            <li>
-              <a href="">About</a>
-            </li>
-            <li>
-              <a href="">Features</a>
-            </li>
-            <li>
-              <a href="">Works</a>
-            </li>
-            <li>
-              <a href="">Career</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="w-55 space-y-7">
-          <h3 className="text-2xl">HELP</h3>
-          <ul className="space-y-3">
-            <li>
-              <a href="">Cutomer Support</a>
-            </li>
-            <li>
-              <a href="">Delivery Details</a>
-            </li>
-            <li>
-              <a href="">Terms & Conditions</a>
-            </li>
-            <li>
-              <a href="">Privacy Policy</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="w-55 space-y-7">
-          <h3 className="text-2xl">FAQ</h3>
-          <ul className="space-y-3">
-            <li>
-              <a href="">Account</a>
-            </li>
-            <li>
-              <a href="">Manage Deliveries</a>
-            </li>
-            <li>
-              <a href="">Orders</a>
-            </li>
-            <li>
-              <a href="">Payments</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="w-55 space-y-7">
-          <h3 className="text-2xl">RESOUTCES</h3>
-          <ul className="space-y-3">
-            <li>
-              <a href="">Free eBook</a>
-            </li>
-            <li>
-              <a href="">Development Tutorial</a>
-            </li>
-            <li>
-              <a href="">How to - Blog</a>
-            </li>
-            <li>
-              <a href="">Youtube Playlist</a>
-            </li>
-          </ul>
         </div>
       </div>
-    </>
+    </footer>
   );
 };
 
-export default FooterInfo
+export default FooterInfo;

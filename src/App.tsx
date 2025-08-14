@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import AppLayout from "./components/Layout/AppLayout";
-import Home from "./pages/Home";
-import ProductCart from "./pages/ProductCart";
+import CartPage from "./pages/CartPage";
+// import Home from "./pages/Home";
 
 function App() {
   const router = createBrowserRouter([
@@ -10,10 +10,10 @@ function App() {
       path: "/",
       element: <AppLayout />,
       children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
+        // {
+        //   path: "/",
+        //   element: <Home />,
+        // },
         // {
         //   path: "/product",
         //   element: <Product />,
@@ -26,9 +26,10 @@ function App() {
         //   path: "/filters",
         //   element: <Filters />,
         // },
+        
         {
-          path: "/productcart",
-          element: <ProductCart />,
+          path: "/cartPage",
+          element: <CartPage />,
         },
       ],
     },

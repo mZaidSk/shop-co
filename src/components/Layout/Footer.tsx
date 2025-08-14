@@ -5,15 +5,12 @@ import CopyRight from "../Footer/CopyRight";
 const Footer = () => {
   return (
     <>
-      <div className="bg-gray-200 shadow-2xl m-5 rounded-2xl">
-        <FooterNewsletter />
+      <FooterNewsletter />
+      <FooterInfo />
 
-        <FooterInfo />
+      <hr className="ml-20 mr-15" />
 
-        <hr className="ml-20 mr-15" />
-
-        <CopyRight />
-      </div>
+      <CopyRight />
     </>
   );
 };

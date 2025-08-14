@@ -6,7 +6,7 @@ import googlepayPng from "../../assets/images/footer-img/googlepay.png";
 const CopyRight = () => {
   return (
     <>
-      <div className="flex justify-between items-center px-20 py-5">
+      <div className="flex flex-col lg:flex-row justify-between items-center px-20 py-5">
         <div className="text-black text-sm">
           Shop.co&copy;2000-2023, All Rights Reserved
         </div>
