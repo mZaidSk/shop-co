@@ -121,7 +121,7 @@ export default function Navbar() {
           </button>
 
           {/* Cart */}
-          <Link to={"/cartPage"}>
+          <Link to={"/Cart"}>
             <ShoppingCart className="w-5 h-5 cursor-pointer" />
           </Link>
 

@@ -26,7 +26,6 @@ function App() {
         //   path: "/filters",
         //   element: <Filters />,
         // },
-        
         {
           path: "/cartPage",
           element: <CartPage />,
