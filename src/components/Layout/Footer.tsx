@@ -3,16 +3,16 @@ import FooterInfo from "../Footer/FooterInfo";
 import CopyRight from "../Footer/CopyRight";
 
 const Footer = () => {
-  return (
-    <>
-      <FooterNewsletter />
-      <FooterInfo />
+    return (
+        <div>
+            <FooterNewsletter />
+            <FooterInfo />
 
-      <hr className="ml-20 mr-15" />
+            <hr />
 
-      <CopyRight />
-    </>
-  );
+            <CopyRight />
+        </div>
+    );
 };
 
 export default Footer;
