@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./components/Layout/AppLayout";
+import Product from "./pages/Product";
 import CategoryPage from "./pages/Category-Page";
 import CartPage from "./pages/CartPage";
 // import Home from "./pages/Home";
