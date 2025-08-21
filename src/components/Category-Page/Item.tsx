@@ -1,24 +1,27 @@
 
-const FrameImage = "ImG"
-const title = "Gradient Graphic T-shirt"
-const price = "100"
 
-const Clist = () => {
+// import Flist from "./Flist";
+import { useState } from "react";
+import Flist from "./Flist";
+import Plist from "./Plist";
+import Position from "./Position";
+
+const Alist = () => {
+    const [onShow, setOnShow] = useState(true);
+    const handleToggle = () => {
+        setOnShow((prev) => !prev);
+    };
+
     return (
-        <div>
-            <div>
-                <img src="src/assets/images/Categoryimg/Frame33.png" alt="" />
-                <div className="container border">{FrameImage}</div>
-                <div>
-                    <h3>{title}</h3>
-                    <p>star</p>
-                    <p>${price}</p>
-                </div>
+        <div className="flex flex-col bg-white w-full">
+            <Position />
+            <div className="flex flex-col lg:flex-row w-full">
+                {onShow && <Flist />}
+                <Plist onToggle={handleToggle} />
             </div>
         </div>
+
     );
 };
 
-export default Clist;
-
-
+export default Alist;

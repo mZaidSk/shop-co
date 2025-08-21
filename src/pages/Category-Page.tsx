@@ -1,9 +1,9 @@
-import Clist from "../components/Category-Page/Item";
+import Alist from "../components/Category-Page/Item";
 
 const CategoryPage = () => {
     return (
         <div>
-            <Clist />
+            <Alist />
         </div>
     );
 };
