@@ -44,11 +44,11 @@ const Recommendation:React.FC = () => {
 ]
   return (
     <div className="h-[80%] w-full ">
-  <h1 className="font-extrabold text-3xl font-[Integral CF] text-center my-10 sm:text-5xl">
+  <h1 className="font-extrabold text-3xl font-[Integral CF] text-center my-10 lg:text-5xl">
     YOU MIGHT ALSO LIKE
   </h1>
 
-  <div className="flex gap-4 px-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+  <div className="flex gap-4 px-4 overflow-x-auto  scrollbar-hide snap-x snap-mandatory">
     {cards.map((card, index) => (
       <div key={index} className="shrink-0 snap-center">
         <ProductCard data={card} />
@@ -77,12 +77,12 @@ const ProductCard:React.FC<Props> = ({data}) => {
 
 
   return (
-    <div className="w-54 sm:w-64 h-fit ">
-        <img className="w-full h-50 sm:h-60  object-cover rounded-2xl" src={data.image} alt="" />
+    <div className="w-54 lg:w-64 h-fit ">
+        <img className="w-full h-50 lg:h-60  object-cover rounded-2xl" src={data.image} alt="product image" />
         <h2 className="my-1  font-medium">{data.name}</h2>
         {/* <h2 className="flex my-1 items-center"> {star}{star}{star}{star} {data.rating}</h2> */}
         <Rating rating={data.rating} size={16} />
-        <h2 className="font-bold text-base sm:text-xl my-1">${data.price}</h2>
+        <h2 className="font-bold text-base lg:text-xl my-1">${data.price}</h2>
 
     </div>
   )

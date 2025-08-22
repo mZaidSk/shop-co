@@ -77,7 +77,7 @@ const ReviewTab = () => {
                 </div>
             </div>
         </div>
-        <div className="flex flex-wrap items-center justify-between  gap-2 h-fit">
+        <div className="flex flex-wrap items-center justify-around  gap-1.5 h-fit">
          {comment.map((review, index) => (
                 <Review key={index} data={review} />
         ))}

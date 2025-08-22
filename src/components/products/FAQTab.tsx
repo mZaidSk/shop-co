@@ -108,15 +108,15 @@ const FAQPage = () => {
         {/* Header */}
         <div className="bg-white shadow-sm my-6 rounded-2xl p-4">
             <div className="max-w-4xl ">
-                <h1 className="inline text-lg md:text-3xl font-bold mb-3 text-gray-800">
+                <h1 className="inline text-2xl md:text-4xl font-bold mb-3 text-gray-800">
                     Frequently Asked <span className="text-yellow-400">Questions</span>
                 </h1>
                 <div className="inline-flex   mb-6">
                     <div className=" rounded-2xl">
-                    <HelpCircle className="size-3" />
+                    <HelpCircle className="size-2 sm:size-3" />
                     </div>
                 </div>
-                <p className="text-base md:text-base text-gray-600 max-w-2xl">
+                <p className="text-sm md:text-base text-gray-600 max-w-2xl">
                     Find answers to your questions quickly and easily
                 </p>
             </div>
@@ -128,7 +128,7 @@ const FAQPage = () => {
           {Categories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
               {/* Category Header */}
-              <div className="bg-gradient-to-r from-gray-400 to-gray-200 p-6">
+              <div className="bg-gradient-to-r from-gray-400 to-gray-200 p-4">
                 <div className="flex items-center space-x-4">
                   <div className="p-2 bg-white/20 rounded-xl">
                     <category.icon className="size-4 text-black" />
@@ -138,7 +138,7 @@ const FAQPage = () => {
               </div>
 
               {/* Questions */}
-              <div className="p-4">
+              <div className="p-3">
                 <div className="space-y-4">
                   {category.questions.map((faq, questionIndex) => {
                     const index = `${categoryIndex}-${questionIndex}`;
@@ -150,7 +150,7 @@ const FAQPage = () => {
                           onClick={() => toggleAccordion(categoryIndex, questionIndex)}
                           className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex justify-between items-center"
                         >
-                          <span className="font-semibold text-gray-900 text-base">{faq.question}</span>
+                          <span className="font-semibold text-gray-900 text-sm sm:text-base">{faq.question}</span>
                           <div className="flex-shrink-0 ml-4">
                             {isActive ? (
                               <ChevronUp className="w-5 h-5 text-gray-600" />
@@ -166,7 +166,7 @@ const FAQPage = () => {
                           }`}
                         >
                           <div className="px-6 py-4 bg-white border-t border-gray-100">
-                            <p className="text-gray-700 leading-relaxed text-sm">{faq.answer}</p>
+                            <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">{faq.answer}</p>
                           </div>
                         </div>
                       </div>
@@ -182,17 +182,17 @@ const FAQPage = () => {
         <div className="mt-16 bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-4">Still have questions?</h3>
-            <p className="text-gray-300 mb-8">Our customer support team is here to help you</p>
+            <p className="text-gray-300 mb-8 text-sm sm:text-base">Our customer support team is here to help you</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
               <div className="flex items-center justify-center space-x-3 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors cursor-pointer">
-                <MessageCircle className="w-6 h-6" />
-                <span className="font-medium">Live Chat Support</span>
+                <MessageCircle className="size-4 sm:size-6" />
+                <span className="font-medium text-sm sm:text-base">Live Chat Support</span>
               </div>
               
               <div className="flex items-center justify-center space-x-3 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors cursor-pointer">
-                <Mail className="w-6 h-6" />
-                <span className="font-medium">Email Support</span>
+                <Mail className="size-4 sm:size-6" />
+                <span className="font-medium text-sm sm:text-base">Email Support</span>
               </div>
             </div>
           </div>

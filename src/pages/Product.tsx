@@ -32,10 +32,10 @@ const Product = () => {
 
 
   const tabs = ["Product Details", "Rating & Reviews", "FAQs"];
-  const [activeTab, setActiveTab] = useState("Rating & Reviews");
+  const [activeTab, setActiveTab] = useState("Product Details");
 
   return (
-    <div className="mx-1 sm:mx-10 ">
+    <div className=" ">
 
     {/* product view tab */}
       <div className="Product-view flex h-fit  m-4  gap-4">
@@ -43,24 +43,28 @@ const Product = () => {
       </div>
         
     {/* review and detail navigation tab */}
-    <div className=" w-full mx-auto p-4">
+    <div className=" w-full   mx-auto p-4">
       {/* Tabs */}
-      <div className=" border-b w-fit sm:w-full   border-[#0000001A] flex justify-around  gap-10">
-        {tabs.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={` pb-3 w-1/3  transition-colors text-base sm:text-xl ${
-              activeTab === tab
-                ? "border-b-2 border-black font-semibold  text-black"
-                : "text-gray-500 hover:text-black"
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
+        <div className="w-full overflow-x-auto sm:overflow-visible">
+            <div className=" border-b w-full border-[#0000001A] flex justify-around min-w-max sm:min-w-0 gap-10 sm:gap-1 snap-x snap-mandatory">
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={` pb-3 w-1/3 whitespace-nowrap transition-colors text-base sm:text-xl snap-center ${
+                    activeTab === tab
+                      ? "border-b-2 border-black font-semibold  text-black"
+                      : "text-gray-500 hover:text-black"
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+        </div>
       </div>
 
+      <div>
       {/* Tab Content */}
       <div className="mt-6">
         {activeTab === "Product Details" && (
@@ -77,9 +81,8 @@ const Product = () => {
       </div>
     </div>
 
-      
 
-
+  
         {/* recommendation tab */}
         <div className="h-fit my-10 overflow-hidden">
         <Recommendation />
