@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 interface BorderColorsProps {
     inputs: (string | number[])[];
@@ -8,6 +8,8 @@ interface BorderColorsProps {
     opacityPercentb?: number;
     borderWidthSize: number;
     chunkSizeRowNumValue: number;
+    selectedColors?: boolean[][];
+    setSelectedColors?: React.Dispatch<React.SetStateAction<boolean[][]>>;
 }
 
 const BorderColors: React.FC<BorderColorsProps> = ({
@@ -16,7 +18,9 @@ const BorderColors: React.FC<BorderColorsProps> = ({
     opacityPercentbg,
     opacityPercentb = 100 /* Default Vaule : Method 1 for setting Default value */,
     borderWidthSize,
-    chunkSizeRowNumValue
+    chunkSizeRowNumValue,
+    selectedColors,
+    setSelectedColors,
 }) => {
 
     const convertNamed = (name: string): [number, number, number] => {
@@ -106,12 +110,26 @@ const BorderColors: React.FC<BorderColorsProps> = ({
 
     const output = processColors(inputs, { convertNamed, convertHex, convertRgb });
 
-    const chunkSize = chunkSizeRowNumValue;
-    const totalRows = Math.ceil(output.length / chunkSize);
-    const outputInRow = Array.from(
-        { length: totalRows },
-        (_, i) => output.slice(i * chunkSize, i * chunkSize + chunkSize)
+    const outputInRow = Array.from({ length: Math.ceil(output.length / chunkSizeRowNumValue) }, (_, i) =>
+        output.slice(i * chunkSizeRowNumValue, i * chunkSizeRowNumValue + chunkSizeRowNumValue)
     );
+
+    // Initialize selectedColors on mount
+    useEffect(() => {
+        if (!selectedColors || selectedColors.length !== outputInRow.length) {
+            setSelectedColors?.(outputInRow.map(row => row.map(() => false)));
+        }
+    }, [inputs, outputInRow.length]);
+
+    const handleColorIconClick = (row: number, col: number) => {
+        if (!setSelectedColors) return;
+        setSelectedColors(prev => {
+            const newGrid = prev?.map(r => [...r]) || outputInRow.map(r => r.map(() => false));
+            newGrid[row][col] = !newGrid[row][col];
+            return newGrid;
+        });
+    };
+
     const clampedBorderDark = Math.max(1, Math.min(borderDarkPercent, 100)); // Clamp 1–100
     const bD = 1 - clampedBorderDark / 100;
     const clampedOpacitybg = Math.max(1, Math.min((opacityPercentbg ?? 100), 100)); // Clamp 1–100  /*(opacityPercentbg ?? 100) → if value is null/undefined, use default 100; otherwise use given value : Method 2 for setting Default value */
@@ -119,25 +137,10 @@ const BorderColors: React.FC<BorderColorsProps> = ({
     const clampedOpacityb = Math.max(1, Math.min(opacityPercentb, 100)); // Clamp 1–100
     const ab = clampedOpacityb / 100;
 
-    const [selectedColors, setSelectedColors] = useState<boolean[][]>(
-        Array.from({ length: totalRows }, (_, rowIndex) =>
-            Array.from({ length: outputInRow[rowIndex]?.length || 0 }, () => false)
-        )
-    );
-    // 2-D Array is Made cuz the Data is rendering in [[],[],[]] to able to access inside the array
-
-    const handleColorIconClick = (rowPosition: number, colPosition: number) => {
-        setSelectedColors(prevGrid => {
-            const newGrid = prevGrid.map(row => [...row]);
-            newGrid[rowPosition][colPosition] = !newGrid[rowPosition][colPosition];
-            return newGrid;
-        });
-    };
-
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 md:gap-3">
             {outputInRow.map((rowColors, rowPosition) => (
-                <div key={rowPosition} className="flex flex-row gap-2 lg:gap-2 xl:gap-4">
+                <div key={rowPosition} className="flex flex-row gap-2 md:gap-3 xl:gap-4">
                     {rowColors.map((rgb, colPosition) => {
                         if (!rgb) return null;
                         const [r, g, b] = rgb;
@@ -146,6 +149,7 @@ const BorderColors: React.FC<BorderColorsProps> = ({
                         const borderWidth = `${borderWidthSize}px`
 
                         return (
+
                             <button
                                 key={colPosition}
                                 style={{
@@ -154,10 +158,10 @@ const BorderColors: React.FC<BorderColorsProps> = ({
                                     borderWidth: borderWidth,
                                     borderStyle: "solid"
                                 }}
-                                className="w-7 h-7 sm:w-6 sm:h-6 md:w-4 md:h-4 lg:w-7 lg:h-7  rounded-full border hover:scale-110 transition flex items-center justify-center"
+                                className="w-7 h-7 md:w-6.5 md:h-6.5 lg:w-6 lg:h-6 xl:w-7 xl:h-7 rounded-full border hover:scale-110 transition flex items-center justify-center"
                                 onClick={() => handleColorIconClick(rowPosition, colPosition)}
                             >
-                                {selectedColors[rowPosition][colPosition] && (
+                                {selectedColors?.[rowPosition]?.[colPosition] && (
                                     <Check
                                         size={16}
                                         strokeWidth={3}

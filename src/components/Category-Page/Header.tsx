@@ -1,14 +1,15 @@
 import { ChevronDown } from "lucide-react";
-import FilterIconList from "./SideBar";
+import { Sliders } from "lucide-react";
+import type { Dispatch, SetStateAction } from "react";
 
-type HeaderSectionProps = {
-    onToggle: () => void;
-};
+interface HeaderSectionProps {
+    setShowFilter: Dispatch<SetStateAction<boolean>>;
+}
 
-const HeaderSrction = ({ onToggle }: HeaderSectionProps) => {
+const HeaderSrction: React.FC<HeaderSectionProps> = ({ setShowFilter }) => {
 
     return (
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center m-2 gap-3">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-center m-0 py-2 md:py-3 lg:py-4 gap-3">
             <div className="text-xl sm:text-2xl md:text-3xl font-bold">
                 Casual
             </div>
@@ -27,8 +28,9 @@ const HeaderSrction = ({ onToggle }: HeaderSectionProps) => {
                         <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" />
                     </div>
                 </div>
-                {<div className="flex items-center lg:hidden " >
-                    <FilterIconList onToggle={onToggle} className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                {<div className="flex items-center " >
+                    <Sliders className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                        onClick={() => setShowFilter(prev => !prev)} />
                 </div>}
             </div>
         </div>

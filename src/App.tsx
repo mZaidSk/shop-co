@@ -16,10 +16,10 @@ function App() {
                 //   path: "/",
                 //   element: <Home />,
                 // },
-                // {
-                //   path: "/product",
-                //   element: <Product />,
-                // },
+                {
+                    path: "/product",
+                    element: <Product />,
+                },
                 {
                     path: "/category",
                     element: <CategoryPage />,
