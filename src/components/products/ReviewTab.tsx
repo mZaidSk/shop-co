@@ -84,7 +84,8 @@ const ReviewTab = () => {
 
         </div>
         <div className=" flex items-center justify-center my-6 ">
-                <button className="h-12 w-42 border-2 border-[#0000001A] rounded-[62px]" onClick={()=>{
+                <button className="h-12 w-42 border-2 border-[#0000001A] rounded-[62px] active:scale-95" 
+                onClick={()=>{
                     setcomment([...comment, {
                                         name: "Samantha D.",
                                         description:"I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",

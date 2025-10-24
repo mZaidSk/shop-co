@@ -30,7 +30,7 @@ const ProductImg:React.FC<ProductCardProps> = ({data}) => {
   }
   return (
   
-    <div className="flex flex-col justify-center lg:flex-row w-1/2 h-fit gap-2 ">
+    <div className="flex flex-col justify-center lg:flex-row w-full lg:w-1/2 h-fit gap-2 ">
 
       <div className="flex flex-row order-2 lg:order-1 lg:flex-col h-fit lg:h-fit w-fit lg:w-40 gap-2.5 overflow-auto" >
 
@@ -38,16 +38,19 @@ const ProductImg:React.FC<ProductCardProps> = ({data}) => {
           return(
              <img 
               key={index}
-              className="w-28 lg:w-40 h-27 md:h-35 lg:h-42   p-0 hover:border rounded-xl object-cover " 
+              className="w-28 lg:w-40 h-27 md:h-35 lg:h-42 p-0 border rounded-xl object-cover active:scale-98  " 
               src={image} 
               alt="product img" 
               onClick={()=>imageHanddler(image)}/>
-          )
+          ) 
         })}
       </div>
       <div className="w-full order-1 lg:order-2 h-full">
 
-          <img className="ProductImg w-90 lg:w-full h-70  md:h-120   lg:h-132 xl:w-120 mr-10  rounded-xl object-cover" src={image} alt="product img" />
+          <img 
+          className="ProductImg w-90 lg:w-full h-70  md:h-120   lg:h-132 xl:w-120 mr-10  rounded-xl object-cover"
+          src={image}
+          alt="product img" />
 
       </div>
     </div>
@@ -71,10 +74,11 @@ const ProductDetail:React.FC<ProductCardProps> = ({data}) => {
         setcount(count+1)
       }
     }
-    const countDecrement =()=>{
-      if (count>1){
-        setcount(count-1)
-      }
+
+  const countDecrement =()=>{
+    if (count>1){
+      setcount(count-1)
+    }
   }
   return (
 
@@ -118,7 +122,7 @@ const ProductDetail:React.FC<ProductCardProps> = ({data}) => {
           {data.ProSize.map((size, index) => {
                   return (
                     <button
-                    className={`h-10 md:h-12 w-19 md:w-22 rounded-[62px] my-2 bg-[#F0F0F0] text-sm md:text-base  transition cursor-pointer
+                    className={`h-10 md:h-12 w-19 md:w-22 rounded-[62px] my-2 bg-[#F0F0F0] text-sm md:text-base  transition cursor-pointer active:scale-95
                       ${click === index && 'bg-black text-white'}`}
                     key={index}
                      onClick={()=>{
@@ -137,16 +141,16 @@ const ProductDetail:React.FC<ProductCardProps> = ({data}) => {
          <div className="flex gap-4 my-6 ">
             <div className="flex justify-around items-center h-11 md:h-13 w-28 md:w-43  bg-[#F0F0F0] rounded-[62px]">
               <button onClick={countDecrement} >
-                <Minus className="w-4 md:w-6 h-4 md:h-6 cursor-pointer" />
+                <Minus className="w-4 md:w-6 h-4 md:h-6 cursor-pointer active:scale-80" />
               </button> 
               <h1 className="text-sm md:text-base">{count}</h1>
               <button onClick={countIncrement} >
-                <Plus className="w-4 md:w-6 h-4 md:h-6 cursor-pointer "/>
+                <Plus className="w-4 md:w-6 h-4 md:h-6 cursor-pointer active:scale-80 "/>
               </button>
             </div>
             
             <div className="h-11 md:h-13 w-60 md:w-100 bg-black rounded-[62px] text-white flex items-center justify-center cursor-pointer 
-                            shadow-md hover:shadow-lg transition-all duration-400 hover:-translate-y-0.5 hover:bg-green-700"
+                            shadow-md hover:shadow-lg transition-all duration-400 active:scale-95 "
                           
                   >
               <button className="text-sm md:text-base">Add to Cart</button>
