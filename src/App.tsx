@@ -5,6 +5,7 @@ import CategoryPage from "./pages/Category-Page";
 import CartPage from "./pages/CartPage";
 // import Home from "./pages/Home";
 import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
     const router = createBrowserRouter([
@@ -12,10 +13,10 @@ function App() {
             path: "/",
             element: <AppLayout />,
             children: [
-                // {
-                //   path: "/",
-                //   element: <Home />,
-                // },
+                {
+                  path: "/",
+                  element: <Home />,
+                },
                 {
                   path: "/product",
                   element: <Product />,

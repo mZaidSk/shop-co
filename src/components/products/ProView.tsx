@@ -162,4 +162,3 @@ const ProductDetail:React.FC<ProductCardProps> = ({data}) => {
 
   )
 }
-
