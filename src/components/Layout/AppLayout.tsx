@@ -7,9 +7,11 @@ const AppLayout = () => {
     return (
         <div>
             <ShowBanner />
-            <div className="m-auto w-[90%] mb-8">
+            <div className="m-auto md:w-[90%] w-[95%] mb-8 z-999">
                 <Header />
+            </div>
                 <Outlet />
+            <div className="m-auto md:w-[90%] w-[95%] mb-8">   
                 <Footer />
             </div>
         </div>

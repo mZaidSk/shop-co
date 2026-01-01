@@ -31,11 +31,12 @@ rating:3
 const Product = () => {
 
 
+
   const tabs = ["Product Details", "Rating & Reviews", "FAQs"];
   const [activeTab, setActiveTab] = useState("Product Details");
 
   return (
-    <div className=" ">
+    <div className="m-auto w-[90%] mb-8">
 
     {/* product view tab */}
       <div className="Product-view flex h-fit  m-4  gap-4">
@@ -46,7 +47,7 @@ const Product = () => {
     <div className=" w-full   mx-auto p-4">
       {/* Tabs */}
         <div className="w-full overflow-x-auto sm:overflow-visible">
-            <div className=" border-b w-full border-[#0000001A] flex justify-around min-w-max sm:min-w-0 gap-10 sm:gap-1 snap-x snap-mandatory">
+            <div className=" border-b w-full border-border-100 justify-around min-w-max sm:min-w-0 gap-10 sm:gap-1 snap-x snap-mandatory">
               {tabs.map((tab) => (
                 <button
                   key={tab}
@@ -85,7 +86,7 @@ const Product = () => {
   
         {/* recommendation tab */}
         <div className="h-fit my-10 overflow-hidden">
-        <Recommendation />
+        <Recommendation heading = "You might also like" slider = {true} />
         </div>
     </div>
   )

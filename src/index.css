@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+
+@theme{
+    --color-grey : #00000099 ; /* text color */
+    --color-border-100 : #0000001A; /* border color */
+    --color-background : #F2F0F1;
+    --color-icon : #00000066
+}
+
+body{
+    cursor: default;
+    user-select: none;
+}
+
+.diamond{
+    border-radius: 50%;
+    corner-shape:scoop;
+    background-color: black;
+}

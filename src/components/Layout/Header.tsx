@@ -1,9 +1,8 @@
 import Navbar from "../Header/Nav";
-import ShowBanner from "../Header/ShowBanner";
 
 const Header = () => {
     return (
-        <header className="w-full">
+        <header className="w-full sticky top-0">
             <Navbar />
         </header>
     );

@@ -1,17 +1,18 @@
 import Banner from "../components/home/Banner";
-import BrandLogo from "../components/home/BrandLogo";
+import Poster from "../components/home/Poster";
+import Recommendation from "../components/products/Recommendation";
 
 const Home = () => {
     return (
         <div>
-            <Banner
-                title="Welcome to Shop Co!"
-                subtitle="Discover the best products and deals."
-                imageUrl="src/assets/images/home-img/banner.jpg"
-                ctaText="Shop Now"
-                onCtaClick={() => alert("CTA clicked!")}
-            />
-            <BrandLogo />
+            <Banner />
+            <div className="m-auto md:w-[90%] w-[94%] mb-8">
+                <Recommendation heading ="NEW ARRIVAL" slider = {false}/>
+                <hr className="text-border-100"/>
+                <Recommendation heading ="TOP SELLING" slider = {false}/>
+                <Poster/>
+
+            </div>
         </div>
     );
 };

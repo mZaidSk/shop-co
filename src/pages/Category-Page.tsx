@@ -1,9 +1,11 @@
-import Alist from "../components/Category-Page/Item";
+// import Alist from "../components/Category-Page/Item";
+import Body from "../components/Category/Body";
 
 const CategoryPage = () => {
     return (
-        <div>
-            <Alist />
+        <div className="">
+            {/* <Alist /> */}
+            <Body/>
         </div>
     );
 };

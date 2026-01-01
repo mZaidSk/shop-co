@@ -91,11 +91,11 @@ const ProductDetail:React.FC<ProductCardProps> = ({data}) => {
       </h3>
       <h2 className="text-2xl md:text-3xl font-bold my-4">${data.ProPrice}</h2>
 
-      <p className="text-[#00000099] my-2 text-sm md:text-base">{data.ProDescription}</p>
+      <p className="text-grey my-2 text-sm md:text-base">{data.ProDescription}</p>
 
-         <hr className="my-4 border-[#0000001A]"/>
+         <hr className="my-4 border-border-100"/>
 
-         <p className="text-[#00000099] my-2 text-base">Select Colors</p>
+         <p className="text-grey my-2 text-base">Select Colors</p>
 
          <div className="flex gap-4 my-4 ">
 
@@ -114,9 +114,9 @@ const ProductDetail:React.FC<ProductCardProps> = ({data}) => {
           })}
          </div>
 
-         <hr className="my-4 border-[#0000001A]"/>
+         <hr className="my-4 border-border-100"/>
 
-         <p className="text-[#00000099] my-2 text-4">Choose Size</p>
+         <p className="text-grey my-2 text-4">Choose Size</p>
 
          <div className="flex flex-wrap gap-2 md:gap-4 ">
           {data.ProSize.map((size, index) => {
@@ -136,7 +136,7 @@ const ProductDetail:React.FC<ProductCardProps> = ({data}) => {
                 })}
          </div>
 
-          <hr className="my-4 border-[#0000001A]"/>
+          <hr className="my-4 border-border-100"/>
 
          <div className="flex gap-4 my-6 ">
             <div className="flex justify-around items-center h-11 md:h-13 w-28 md:w-43  bg-[#F0F0F0] rounded-[62px]">

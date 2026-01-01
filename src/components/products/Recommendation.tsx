@@ -1,8 +1,13 @@
 
 import Rating from "./Rating"
 
+type topic = {
+  heading : string
+  slider? :boolean
+}
 
-const Recommendation:React.FC = () => {
+
+const Recommendation:React.FC<topic>= (prop) => {
 
     const cards: CardData[] = [
   {
@@ -44,44 +49,55 @@ const Recommendation:React.FC = () => {
 ]
   return (
     <div className="h-[80%] w-full ">
-  <h1 className="font-extrabold text-3xl font-[Integral CF] text-center my-10 lg:text-5xl">
-    YOU MIGHT ALSO LIKE
-  </h1>
+      
+      <h1 className="font-extrabold text-3xl font-[Integral CF] text-center my-10 lg:text-5xl">
+        {prop.heading}
+      </h1>
 
-  <div className="flex gap-4 px-4 overflow-x-auto  scrollbar-hide snap-x snap-mandatory">
-    {cards.map((card, index) => (
-      <div key={index} className="shrink-0 snap-center">
-        <ProductCard data={card} />
+      <div className={` ${prop.slider ? ' flex overflow-x-auto  scrollbar-hide snap-x snap-mandatory gap-4' :'grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-4 gap-6'}  px-4`}>
+          {cards.map((card, index) => (
+              <div key={index} className={`${prop.slider ? "shrink-0 snap-center" : ''}`}>
+                <ProductCard data={card} size={prop.slider ? " large" : 'small'} />
+              </div>
+          ))}
       </div>
-    ))}
-  </div>
-</div>
+          {!prop.slider  && (
+              <div className=" w-full h-full  flex items-center justify-center my-6 ">
+                      <button className="h-12 w-42 border-2 border-border-100 rounded-[62px] active:scale-95">
+                      view all
+                      </button>
+              </div>
+            )}
+    </div>
   )
 }
 
 export default Recommendation
 
 
-interface CardData {
+export interface CardData {
   name: string;
   price: number;
   image: string;
   rating: number;
 }
 
-interface Props {
-  data: CardData;
+export interface Props {
+  data: CardData,
+  size: 'small' |' large'
 }
 
-const ProductCard:React.FC<Props> = ({data}) => {
+export const ProductCard:React.FC<Props> = ({data,size}) => {
 
 
   return (
-    <div className="w-54 lg:w-64 h-fit ">
+    <div className={`${size=='small' ? 'lg:w-66 w-40' :'lg:w-64 w-54'}  h-fit`}>
         <img className="w-full h-50 lg:h-60  object-cover rounded-2xl" src={data.image} alt="product image" />
         <h2 className="my-1  font-medium">{data.name}</h2>
-        {/* <h2 className="flex my-1 items-center"> {star}{star}{star}{star} {data.rating}</h2> */}
-        <Rating rating={data.rating} size={16} />
+        <span className="flex items-center gap-4">
+          <Rating rating={data.rating} size={16} />
+          <p className="md:text-base text-sm">{data.rating}/<span className="text-grey">5</span></p>
+        </span>
         <h2 className="font-bold text-base lg:text-xl my-1">${data.price}</h2>
 
     </div>
