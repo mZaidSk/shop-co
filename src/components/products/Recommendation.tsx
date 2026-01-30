@@ -1,4 +1,5 @@
 
+import { Link, NavLink } from "react-router-dom"
 import Rating from "./Rating"
 
 type topic = {
@@ -91,7 +92,8 @@ export const ProductCard:React.FC<Props> = ({data,size}) => {
 
 
   return (
-    <div className={`${size=='small' ? 'lg:w-66 w-40' :'lg:w-64 w-54'}  h-fit`}>
+    <Link to={`/product`}>
+      <div className={`${size=='small' ? 'lg:w-66 w-40' :'lg:w-64 w-54'}  h-fit`}>
         <img className="w-full h-50 lg:h-60  object-cover rounded-2xl" src={data.image} alt="product image" />
         <h2 className="my-1  font-medium">{data.name}</h2>
         <span className="flex items-center gap-4">
@@ -100,7 +102,8 @@ export const ProductCard:React.FC<Props> = ({data,size}) => {
         </span>
         <h2 className="font-bold text-base lg:text-xl my-1">${data.price}</h2>
 
-    </div>
+      </div>
+    </Link>
   )
 }
 

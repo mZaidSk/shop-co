@@ -1,6 +1,7 @@
 import { Check, ChevronRight } from "lucide-react"
 import type React from "react"
 import { useState } from "react"
+import Doubleslider from "./Doubleslider"
 
 const SideBar = () => {
 
@@ -25,8 +26,8 @@ const SideBar = () => {
 
       <div>
         <Dropdown heading="Price" parentclass="text-xl" >
-          <div >
-            <input type="range" name="" id="" className="w-full"/>
+          <div className="w-full h-10  my-5" >
+            <Doubleslider minimum={10} maximum={300}/>
           </div>
         </Dropdown>
       </div>
@@ -103,9 +104,6 @@ type dropmenu = {
   padding? : boolean,
   parentclass? : string,
   childclass? : CSSAnimation
-  // isList? : boolean,
-  // ListItem? : string[],
-  // content? : string,
 }
 
 

@@ -5,7 +5,8 @@
     --color-grey : #00000099 ; /* text color */
     --color-border-100 : #0000001A; /* border color */
     --color-background : #F2F0F1;
-    --color-icon : #00000066
+    --color-icon : #00000066;
+    --radius-semicircle : 62px
 }
 
 body{

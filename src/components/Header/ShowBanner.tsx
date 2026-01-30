@@ -10,7 +10,7 @@ const ShowBanner = () => {
         <div className="bg-black text-white text-xl sm:text-sm md:text-lg px-3 py-1 flex justify-between items-center sm:w-full">
           <span className="text-center text-xl sm:text-sm md:text-lg w-full">
             Sign up and get 20% off to your first order.
-            <a href="#" className="underline font-medium">
+            <a href="/signup" className="underline font-medium">
               Sign Up Now
             </a>
           </span>

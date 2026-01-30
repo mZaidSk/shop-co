@@ -1,5 +1,5 @@
-import { SlidersHorizontal } from "lucide-react"
-import  { useState } from "react"
+import { SlidersHorizontal, X } from "lucide-react"
+import  { useEffect, useState } from "react"
 import Review from "./Review"
 
 interface reviews {
@@ -52,50 +52,64 @@ const ReviewTab = () => {
   ]
 
   const [comment, setcomment] = useState(ReviewData)
-  const [number_review, setnumber_review] = useState(ReviewData.length)
+  const [number_review, setnumber_review] = useState<number>(ReviewData.length)
+  const [isReview, setisReview] = useState<boolean>(false)
+
+
 
   return (
-    <div className="w-fit">
-        <div className="w-[98%] sm:w-full flex justify-between gap-4 items-center my-6">
-            <div className="flex items-baseline gap-2">
-                <h1 className="text-lg sm:text-2xl font-bold">All Reviews</h1>
-                <h4 className="text-sm sm:text-base font-normal">({number_review})</h4>
-            </div>
-            <div className="flex justify-around items-center gap-2">
-                <div className="w-8 h-8 sm:h-12 sm:w-12  bg-[#F0F0F0] rounded-[62px] text-white flex items-center justify-center rotate-90">
-                <h1><SlidersHorizontal color="black"/></h1>
-                </div>
-                <div className="sm:flex justify-center hidden h-12 w-30 border-2 border-[#F0F0F0] rounded-[62px] bg-[#F0F0F0]  ">
-                    <select  name="latest" id="cars">
-                    <option value="Latest">Latest</option>
-                    <option value="Top">Top</option>
-                    <option value="Down">Down</option>
-                    </select>
-                </div>
-                <div className="w-29 h-10 sm:h-12 sm:w-42 bg-black rounded-[62px] text-white flex items-center justify-center">
-                <h1 className="text-base sm:text-lg">Review</h1>
-                </div>
-            </div>
+    <div>
+        {isReview ? <div className="w-[90%] h-full fixed top-0 z-9 justify-center items-center blur-none  flex  p-6">
+        <div className="w-full m-auto h-full">
+        hello
         </div>
-        <div className="flex flex-wrap items-center justify-around  gap-1.5 h-fit">
-         {comment.map((review, index) => (
-                <Review key={index} data={review} />
-        ))}
+        <div onClick={()=>{setisReview(!isReview)}}><X /></div>
+        </div>:''
+        }
+        <div className={`w-full h-full ${isReview && 'blur-md'} `}>
+            <div className="w-[98%] sm:w-full flex justify-between gap-4 items-center my-6">
+                <div className="flex items-baseline gap-2">
+                    <h1 className="text-lg sm:text-2xl font-bold">All Reviews</h1>
+                    <h4 className="text-sm sm:text-base font-normal">({number_review})</h4>
+                </div>
+                <div className="flex justify-around items-center gap-2">
+                    <div className="w-8 h-8 sm:h-12 sm:w-12  bg-[#F0F0F0] rounded-[62px] text-white flex items-center justify-center rotate-90">
+                    <h1><SlidersHorizontal color="black"/></h1>
+                    </div>
+                    <div className="sm:flex justify-center hidden h-12 w-30 border-2 border-[#F0F0F0] rounded-[62px] bg-[#F0F0F0]  ">
+                        <select  name="latest" id="cars">
+                        <option value="Latest">Latest</option>
+                        <option value="Top">Top</option>
+                        <option value="Down">Down</option>
+                        </select>
+                    </div>
+                    <div 
+                    onClick={()=>{setisReview(true);console.log(!isReview)}}
+                    className="w-29 h-10 sm:h-12 sm:w-42 bg-black rounded-[62px] active:scale-99 text-white flex items-center justify-center">
+                        <h1 className="text-base sm:text-lg">Review</h1>
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-wrap items-center justify-around  gap-1.5 h-fit">
+            {comment.map((review, index) => (
+                    <Review key={index} data={review} />
+            ))}
 
-        </div>
-        <div className=" flex items-center justify-center my-6 ">
-                <button className="h-12 w-42 border-2 border-[#0000001A] rounded-[62px] active:scale-95" 
-                onClick={()=>{
-                    setcomment([...comment, {
-                                        name: "Samantha D.",
-                                        description:"I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
-                                        date:"Posted on August 14, 2023",
-                                        rating: 4.5
-                                        }]);
-                    setnumber_review(comment.length+1)
-                }}>
-                Load More Reviews
-                </button>
+            </div>
+            <div className=" flex items-center justify-center my-6 ">
+                    <button className="h-12 w-42 border-2 border-[#0000001A] rounded-[62px] active:scale-95" 
+                    onClick={()=>{
+                        setcomment([...comment, {
+                                            name: "Samantha D.",
+                                            description:"I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+                                            date:"Posted on August 14, 2023",
+                                            rating: 4.5
+                                            }]);
+                        setnumber_review(comment.length+1)
+                    }}>
+                    Load More Reviews
+                    </button>
+            </div>
         </div>
     </div>
   )

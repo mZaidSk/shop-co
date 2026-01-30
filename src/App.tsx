@@ -1,12 +1,13 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import AppLayout from "./components/Layout/AppLayout";
 import Product from "./pages/Product";
 import CategoryPage from "./pages/Category-Page";
 import CartPage from "./pages/CartPage";
-// import Home from "./pages/Home";
 import "./App.css";
 import Home from "./pages/Home";
-import { LogIn } from "lucide-react";
+import Login from "./pages/Login";
+import Notfound from "./pages/Notfound";
+import Signup from "./pages/Signup";
 
 function App() {
     const router = createBrowserRouter([
@@ -38,11 +39,23 @@ function App() {
             children:[
                 {
                   path: "/login",
-                  element: <LogIn />,
+                  element: <Login />,
+                
                 },
                 {
+                    path:'/signup',
+                    element:<Signup />
+                },
+                // demo check
+                {
                     path:'/user',
-                    element:<div>admin</div>
+                    element:<Link to={'/login'}>
+                        <div className="w-full h-screen text-center text-5xl">admin</div>
+                    </Link>
+                },
+                {
+                    path:'*',
+                    element : <Notfound/>
                 }
             ]
         }
